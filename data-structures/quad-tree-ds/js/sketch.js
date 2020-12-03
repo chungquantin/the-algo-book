@@ -3,6 +3,7 @@ let map = {
 	height: 400,
 };
 let quadTree;
+let range;
 
 function setup() {
 	createCanvas(map.width, map.height);
@@ -15,18 +16,29 @@ function setup() {
 	);
 	const capacity = 4;
 	quadTree = new QuadTree(boundary, capacity);
-	console.log(quadTree);
-}
 
-function draw() {
+	for (let i = 0; i < 100; i++) {
+		let p = new Point(random(map.width), random(map.height));
+		quadTree.insert(p);
+	}
+	let points = [];
+	range = new Rectangle(250, 250, 107, 92);
+	quadTree.query(range, points);
+
+	console.log(points);
+
 	background(0);
-	// setInterval(() => {
-	// 	let p = new Point(random(map.width), random(map.height));
-	// 	quadTree.insert(p);
-	// }, 1000);
 	quadTree.show();
 
 	stroke(0, 255, 0);
 	rectMode(CENTER);
-	rect(300, 300, 107, 92);
+	rect(range.x, range.y, range.w * 2, range.h * 2);
+
+	for (let p of points) {
+		strokeWeight(4);
+		stroke(0, 255, 0);
+		point(p.x, p.y);
+	}
 }
+
+function draw() {}

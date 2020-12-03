@@ -30,6 +30,15 @@ class Rectangle {
 			point.y <= this.y + this.h
 		);
 	}
+	intersect(range) {
+		// Check wether two rectangles are overlapping or not
+		return !(
+			range.x - range.w > this.x + this.w ||
+			range.x + range.w < this.x - this.w ||
+			range.y - range.h > this.y + this.h ||
+			range.x + range.h < this.y - this.h
+		);
+	}
 }
 
 class QuadTree {
@@ -97,5 +106,20 @@ class QuadTree {
 			this.southwest.show();
 		}
 		this.points.forEach((point) => point.show());
+	}
+	query(range, found) {
+		if (!this.boundary.intersect(range)) return;
+		for (let p of this.points) {
+			if (range.contains(p)) {
+				found.push(p);
+			}
+		}
+		if (this.divided) {
+			this.northwest.query(range, found);
+			this.northeast.query(range, found);
+			this.southeast.query(range, found);
+			this.southwest.query(range, found);
+		}
+		return found;
 	}
 }
