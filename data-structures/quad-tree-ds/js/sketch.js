@@ -21,8 +21,15 @@ function setup() {
 		let p = new Point(random(map.width), random(map.height));
 		quadTree.insert(p);
 	}
+
+	rangeDraw(250, 250, 100, 100);
+}
+
+function draw() {}
+
+function rangeDraw(x, y, w, h) {
 	let points = [];
-	range = new Rectangle(250, 250, 107, 92);
+	range = new Rectangle(x, y, w, h);
 	quadTree.query(range, points);
 
 	console.log(points);
@@ -40,5 +47,3 @@ function setup() {
 		point(p.x, p.y);
 	}
 }
-
-function draw() {}
