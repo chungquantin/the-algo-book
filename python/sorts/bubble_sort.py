@@ -1,4 +1,29 @@
-def recursive_bubble_sort(arr: list, length=None):
+from python.utils.Sample import *
+from python.sorts.Test import *
+
+
+def bubble_sort(arr: list):
+    length = len(arr)
+    for i in range(length - 1):
+        for j in range(length - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+
+
+def optimized_bubble_sort(arr: list):
+    length = len(arr)
+    for i in range(length - 1):
+        is_sorted = True
+        for j in range(length - i - 1):
+            if arr[j] > arr[j + 1]:
+                if is_sorted:
+                    is_sorted = False
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+        if is_sorted:
+            break
+
+
+def recursive_bubble_sort(arr: list, length: int = None):
     if length is None:
         length = len(arr)
     if length <= 1:
@@ -6,11 +31,10 @@ def recursive_bubble_sort(arr: list, length=None):
     for i in range(length - 1):
         if arr[i] > arr[i + 1]:
             arr[i], arr[i + 1] = arr[i + 1], arr[i]
-    length -= 1
-    recursive_bubble_sort(arr, length)
+    recursive_bubble_sort(arr, length - 1)
 
 
-def optimized_recursive_bubble_sort(arr: list, length=None):
+def optimized_recursive_bubble_sort(arr: list, length: int = None):
     is_sorted = True
     if length is None:
         length = len(arr)
@@ -21,14 +45,26 @@ def optimized_recursive_bubble_sort(arr: list, length=None):
             if is_sorted:
                 is_sorted = False
             arr[i], arr[i + 1] = arr[i + 1], arr[i]
-    length -= 1
-    optimized_recursive_bubble_sort(arr, length)
+    optimized_recursive_bubble_sort(arr, length - 1)
 
 
-numbers = [5, 9, 100, 2, 4, 8, 7, 99]
-recursive_bubble_sort(numbers)
-print(numbers)
+# Create test functions
+bs_test = sort_test(bubble_sort)
+obs_test = sort_test(optimized_bubble_sort)
+rbs_test = sort_test(recursive_bubble_sort)
+orbs_test = sort_test(optimized_recursive_bubble_sort)
 
-numbers = [5, 9, 100, 2, 4, 8, 7, 99]
-optimized_recursive_bubble_sort(numbers)
-print(numbers)
+# Create random sample
+# Note: Recursion bubble sort cannot be used on large sample due to recursion depth limit.
+
+sample = sample(10000, 0, 1000)
+# sample = sorted_sample(10000, reverse=False)
+# sample = sorted_sample(10000, reverse=True)
+
+# Copy sample for each test
+bs_sample = sample.copy()
+obs_sample = sample.copy()
+
+# Run tests
+bs_test(bs_sample)
+obs_test(obs_sample)
