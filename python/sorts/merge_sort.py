@@ -17,7 +17,7 @@ def merge_sort(arr: list):
     # From here, 2 halves are already sorted
     l = r = a = 0
 
-    # Pick the higher number from each list (left to right) until all numbers of 1 list is selected
+    # Copy the higher number from each list (left to right) until all numbers of 1 list are copied
     while l < len(left) and r < len(right):
         current_left = left[l]
         current_right = right[r]
@@ -29,7 +29,7 @@ def merge_sort(arr: list):
             r += 1
         a += 1
 
-    # Pick the remaining numbers
+    # Copy the remaining numbers from the other list
     while l < len(left):
         arr[a] = left[l]
         l += 1
