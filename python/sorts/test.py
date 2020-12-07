@@ -5,34 +5,43 @@ from python.utils.Color import *
 from python.sorts.bubble_sort import *
 from python.sorts.merge_sort import *
 from python.sorts.selection_sort import *
+from python.sorts.brick_sort import *
+from python.sorts.insertion_sort import *
+from python.sorts.pigeonhole_sort import *
 
 
 def sort_test(algorithm):
     @print_separator
-    @timer
     def test(numbers):
         numbers = numbers.copy()
+        minimized_size = 100
         expected = sorted(numbers)
         print(f'{color_text(algorithm.__name__, Color.HEADER)}')
-        print(f'Size: {len(numbers)}')
-        print(f'Before: {numbers}')
+        size = len(numbers)
+        print(f'Size: {size}')
+        if size < minimized_size:
+            print(f'Before: {numbers}')
+        before = time.time()
         algorithm(numbers)
-        print(f'After: {numbers}')
+        after = time.time()
+        if size < minimized_size:
+            print(f'After: {numbers}')
         result = f'{color_text("Success", Color.OKGREEN)}' if numbers == expected else f'{color_text("Failed", Color.FAIL)}'
         print(f'Test result: {result}.')
+        print(f'Elapsed: {after-before}s')
 
     return test
 
 
 # Create test functions
 
-bs_test = sort_test(bubble_sort)
-obs_test = sort_test(optimized_bubble_sort)
-# rbs_test = sort_test(recursive_bubble_sort)
-# orbs_test = sort_test(optimized_recursive_bubble_sort)
-ms_test = sort_test(merge_sort)
-ss_test = sort_test(selection_sort)
-
+bubble_sort_test = sort_test(bubble_sort)
+optimized_bubble_sort_test = sort_test(optimized_bubble_sort)
+merge_sort_test = sort_test(merge_sort)
+selection_sort_test = sort_test(selection_sort)
+brick_sort_test = sort_test(brick_sort)
+insertion_sort_test = sort_test(insertion_sort)
+pigeonhole_sort_test = sort_test(pigeonhole_sort)
 # Create random sample
 # Note: Recursion bubble sort cannot be used on large sample due to recursion depth limit.
 
@@ -42,7 +51,10 @@ s = sample(10000, 0, 1000)
 
 
 # Run tests
-# bs_test(s)
-# obs_test(s)
-ms_test(s)
-ss_test(s)
+pigeonhole_sort_test(s)
+merge_sort_test(s)
+selection_sort_test(s)
+insertion_sort_test(s)
+brick_sort_test(s)
+bubble_sort_test(s)
+optimized_bubble_sort_test(s)
