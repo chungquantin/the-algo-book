@@ -45,15 +45,15 @@ insertion_sort_test = sort_test(insertion_sort)
 # Create random sample
 # Note: Recursion bubble sort cannot be used on large sample due to recursion depth limit.
 
-s = sample(10000, 0, 1000)
+s = sample(5000, 0, 1000)
 # s = sorted_sample(10000, reverse=False)
 # s = sorted_sample(10000, reverse=True)
 
 
 # Run tests
-insertion_sort_test(s)
-brick_sort_test(s)
 merge_sort_test(s)
 selection_sort_test(s)
+insertion_sort_test(s)
+brick_sort_test(s)
 bubble_sort_test(s)
 optimized_bubble_sort_test(s)
