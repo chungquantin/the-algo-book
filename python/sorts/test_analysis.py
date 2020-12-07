@@ -8,7 +8,7 @@ def sort_test(algorithm):
     @print_separator
     def test(numbers):
         numbers = numbers.copy()
-        minimized_size = 100
+        minimized_size = 101
         expected = sorted(numbers)
         print(f'{color_text(algorithm.__name__, Color.HEADER)}')
         size = len(numbers)
