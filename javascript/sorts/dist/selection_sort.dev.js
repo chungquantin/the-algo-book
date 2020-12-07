@@ -1,3 +1,5 @@
+"use strict";
+
 require("../utils/array_utils/swap");
 /** Selection Sort Explanation
  * ---------------------------------------------------------
@@ -15,18 +17,24 @@ require("../utils/array_utils/swap");
  * @param {Array} arr - The array is sorted
  * @returns {Array} The sorted array
  */
-const selection_sort = function SelectionSort(arr) {
-	let len = arr.length;
-	for (let i = 0; i < len; i++) {
-		min_index = i;
-		min = arr[min_index];
-		for (let j = i + 1; j < len; j++) {
-			if (arr[j] < min) {
-				min = arr[j];
-				min_index = j;
-			}
-		}
-		arr.swap(arr, i, min_index);
-	}
-	return arr;
+
+
+var selection_sort = function SelectionSort(arr) {
+  var len = arr.length;
+
+  for (var i = 0; i < len; i++) {
+    min_index = i;
+    min = arr[min_index];
+
+    for (var j = i + 1; j < len; j++) {
+      if (arr[j] < min) {
+        min = arr[j];
+        min_index = j;
+      }
+    }
+
+    arr.swap(arr, i, min_index);
+  }
+
+  return arr;
 };

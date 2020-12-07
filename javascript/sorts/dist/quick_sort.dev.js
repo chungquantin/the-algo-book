@@ -1,3 +1,5 @@
+"use strict";
+
 /** Quick Sort Explanation
  * --------------------------------------------------
  * Description: Divide and Conquer Algorithm ( O(n*log n) )
@@ -15,16 +17,16 @@
  * @param {Array} arr -- The root array
  * @returns {Array} The sorted array
  */
-const quickSort = function QuickSort(arr) {
-	if (arr.length == 0) return [];
-	let left = [],
-		right = [],
-		// Take the pivot as the first element of arr
-		pivot = arr[0];
+var quickSort = function QuickSort(arr) {
+  if (arr.length == 0) return [];
+  var left = [],
+      right = [],
+      // Take the pivot as the first element of arr
+  pivot = arr[0];
 
-	for (let i = 1; i < arr.length; i++) {
-		if (arr[i] < pivot) left.push(arr[i]);
-		else right.push(arr[i]);
-	}
-	return quickSort(left).concat(pivot, quickSort(right));
+  for (var i = 1; i < arr.length; i++) {
+    if (arr[i] < pivot) left.push(arr[i]);else right.push(arr[i]);
+  }
+
+  return quickSort(left).concat(pivot, quickSort(right));
 };
