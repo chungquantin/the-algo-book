@@ -6,7 +6,6 @@ function merge(left, right) {
 	let resultArray = [],
 		leftIndex = 0,
 		rightIndex = 0;
-	console.log("merge: ", left, right);
 	// We will concatenate values into the resultArray in order
 	while (leftIndex < left.length && rightIndex < right.length) {
 		if (left[leftIndex] < right[rightIndex]) {
@@ -20,7 +19,6 @@ function merge(left, right) {
 
 	// We need to concat here because there will be one element remaining
 	// from either left OR the right
-	console.log("concat: ", resultArray, left, right);
 	return resultArray
 		.concat(left.slice(leftIndex))
 		.concat(right.slice(rightIndex));
@@ -58,7 +56,6 @@ const mergeSort = function MergeSort(arr) {
 	let l = arr.slice(0, m);
 	// Divide the right half
 	let r = arr.slice(m);
-	console.log(l, r);
 	return merge(mergeSort(l), mergeSort(r));
 };
 

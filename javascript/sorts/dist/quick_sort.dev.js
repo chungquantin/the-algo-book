@@ -2,7 +2,14 @@
 
 /** Quick Sort Explanation
  * --------------------------------------------------
- * Description: Divide and Conquer Algorithm ( O(n*log n) )
+ * Time Complexity
+ *
+ * - Best case: O(n*log(n))
+ * - Average: O(n*log(n))
+ * - Worst case: O(n^2)
+ *
+ * Code Explanation
+ *
  * - Chose the pivot
  * -- The pivot can be at the middle
  * -- The pivot can be random

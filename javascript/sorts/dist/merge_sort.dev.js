@@ -7,8 +7,7 @@
 function merge(left, right) {
   var resultArray = [],
       leftIndex = 0,
-      rightIndex = 0;
-  console.log("merge: ", left, right); // We will concatenate values into the resultArray in order
+      rightIndex = 0; // We will concatenate values into the resultArray in order
 
   while (leftIndex < left.length && rightIndex < right.length) {
     if (left[leftIndex] < right[rightIndex]) {
@@ -22,7 +21,6 @@ function merge(left, right) {
   // from either left OR the right
 
 
-  console.log("concat: ", resultArray, left, right);
   return resultArray.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
 }
 /** Merge Sort Explanation
@@ -59,7 +57,6 @@ var mergeSort = function MergeSort(arr) {
   var l = arr.slice(0, m); // Divide the right half
 
   var r = arr.slice(m);
-  console.log(l, r);
   return merge(mergeSort(l), mergeSort(r));
 };
 
