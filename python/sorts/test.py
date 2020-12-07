@@ -7,11 +7,7 @@ from python.sorts.insertion_sort import *
 from python.sorts.pigeonhole_sort import *
 from python.sorts.test_analysis import *
 
-# Create sample
-s = sample(1000, 0, 1000)
-
 # Choose algorithms to test
-
 algorithms = [
     pigeonhole_sort,
     merge_sort,
@@ -21,8 +17,8 @@ algorithms = [
     bubble_sort,
     optimized_bubble_sort,
 ]
-
+# Create sample
+s = sample(1000, 0, 1000)
 # Choose analysis mode
-
 sorts_analysis(s, algorithms)
 # sorts_table_analysis(s, algorithms)
