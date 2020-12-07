@@ -1,11 +1,10 @@
-from python.utils.Sample import sample
-from python.utils.Timer import timer
-from python.utils.PrintSeparator import print_separator
-from python.utils.Color import Color
+from python.utils.Sample import *
+from python.utils.Timer import *
+from python.utils.PrintSeparator import *
+from python.utils.Color import *
 from python.sorts.bubble_sort import *
 from python.sorts.merge_sort import *
 from python.sorts.selection_sort import *
-import time
 
 
 def sort_test(algorithm):
@@ -14,12 +13,12 @@ def sort_test(algorithm):
     def test(numbers):
         numbers = numbers.copy()
         expected = sorted(numbers)
-        print(algorithm.__name__)
+        print(f'{color_text(algorithm.__name__, Color.HEADER)}')
         print(f'Size: {len(numbers)}')
         print(f'Before: {numbers}')
         algorithm(numbers)
         print(f'After: {numbers}')
-        result = f'{Color.OKGREEN}Success{Color.ENDC}' if numbers == expected else f'{Color.FAIL}Failed{Color.ENDC}'
+        result = f'{color_text("Success", Color.OKGREEN)}' if numbers == expected else f'{color_text("Failed", Color.FAIL)}'
         print(f'Test result: {result}.')
 
     return test
@@ -33,7 +32,6 @@ obs_test = sort_test(optimized_bubble_sort)
 # orbs_test = sort_test(optimized_recursive_bubble_sort)
 ms_test = sort_test(merge_sort)
 ss_test = sort_test(selection_sort)
-# rss_test = sort_test(recursive_selection_sort)
 
 # Create random sample
 # Note: Recursion bubble sort cannot be used on large sample due to recursion depth limit.

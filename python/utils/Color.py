@@ -8,3 +8,7 @@ class Color:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
+
+
+def color_text(text: str, color: str):
+    return f'{color}{text}{Color.ENDC}'
