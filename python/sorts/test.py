@@ -20,9 +20,11 @@ def sort_test(algorithm):
         print(f'{color_text(algorithm.__name__, Color.HEADER)}')
         size = len(numbers)
         print(f'Size: {size}')
-        print(f'Before: {numbers if size < minimized_size else "(too many numbers...)"}')
+        if size < minimized_size:
+            print(f'Before: {numbers}')
         algorithm(numbers)
-        print(f'After: {numbers if size < minimized_size else "(too many numbers...)"}')
+        if size < minimized_size:
+            print(f'After: {numbers}')
         result = f'{color_text("Success", Color.OKGREEN)}' if numbers == expected else f'{color_text("Failed", Color.FAIL)}'
         print(f'Test result: {result}.')
 
