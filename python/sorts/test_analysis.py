@@ -4,26 +4,35 @@ from python.utils.Color import *
 from python.utils.Table import *
 
 
+def get_sort_test_data(algorithm, numbers: list):
+    numbers = numbers.copy()
+    expected = sorted(numbers)
+    start = time.time()
+    algorithm(numbers)
+    end = time.time()
+    elapsed = end - start
+    success = numbers == expected
+    after = numbers
+    return after, success, elapsed
+
+
 def sort_test(algorithm):
     @print_separator
     def test(numbers):
         numbers = numbers.copy()
         minimized_size = 101
-        expected = sorted(numbers)
         print(f'{color_text(algorithm.__name__, Color.HEADER)}')
         size = len(numbers)
         print(f'Size: {size}')
         print(f'Range: {max(numbers) - min(numbers)}')
         if size < minimized_size:
             print(f'Before: {numbers}')
-        before = time.time()
-        algorithm(numbers)
-        after = time.time()
+        after, success, elapsed = get_sort_test_data(algorithm, numbers)
         if size < minimized_size:
-            print(f'After: {numbers}')
-        result = f'{color_text("Success", Color.OKGREEN)}' if numbers == expected else f'{color_text("Failed", Color.FAIL)}'
+            print(f'After: {after}')
+        result = f'{color_text("Success", Color.OKGREEN)}' if success else f'{color_text("Failed", Color.FAIL)}'
         print(f'Result: {result}.')
-        print(f'Elapsed: {after - before}s')
+        print(f'Elapsed: {elapsed}s')
 
     return test
 
@@ -32,23 +41,18 @@ def sorts_table_analysis(numbers: list, algorithms: list):
     size = len(numbers)
     print(f'Size: {size}')
     print(f'Range: {max(numbers) - min(numbers)}')
-    expected = sorted(numbers)
 
     table = Table(['Algorithm',
                    'Result',
                    'Elapsed'])
     for algorithm in algorithms:
-        _numbers = numbers.copy()
-        before = time.time()
-        algorithm(_numbers)
-        after = time.time()
-        elapsed = after - before
-        elapsed_str = "{:.10f}s".format(elapsed)
-        result = "Success" if _numbers == expected else "Failed"
+        after, success, elapsed = get_sort_test_data(algorithm, numbers)
+        elapsed = "{:.10f}s".format(elapsed)
+        result = "Success" if success else "Failed"
         table.add_row([
             algorithm.__name__,
             result,
-            elapsed_str])
+            elapsed])
     table.display()
 
 
