@@ -12,12 +12,14 @@ def sort_test(algorithm):
     @timer
     def test(numbers):
         numbers = numbers.copy()
+        minimized_size = 100
         expected = sorted(numbers)
         print(f'{color_text(algorithm.__name__, Color.HEADER)}')
-        print(f'Size: {len(numbers)}')
-        print(f'Before: {numbers}')
+        size = len(numbers)
+        print(f'Size: {size}')
+        print(f'Before: {numbers if size < minimized_size else "(too many numbers...)"}')
         algorithm(numbers)
-        print(f'After: {numbers}')
+        print(f'After: {numbers if size < minimized_size else "(too many numbers...)"}')
         result = f'{color_text("Success", Color.OKGREEN)}' if numbers == expected else f'{color_text("Failed", Color.FAIL)}'
         print(f'Test result: {result}.')
 
@@ -42,7 +44,7 @@ s = sample(10000, 0, 1000)
 
 
 # Run tests
-# bs_test(s)
-# obs_test(s)
+bs_test(s)
+obs_test(s)
 ms_test(s)
 ss_test(s)
