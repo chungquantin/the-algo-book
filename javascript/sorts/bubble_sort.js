@@ -1,6 +1,19 @@
 require("../utils/array_utils/swap");
 /** Bubble Sort Explanation
- * @param {Array} arr - The root array
+ *---------------------------------------------------------------------------------
+ * Time Complexity
+ *
+ * - Best case: O(n^2)
+ * - Worst case: O(n^2)
+ * - Average: O(n^2)
+ *
+ * Code Explanation
+ *
+ * - Wrap the array with two for loop
+ * - Bring the smallest element index j swapped with start element i of that stage
+ * -------------------------------------------------------------------------------
+ * @param {Array} arr - The root
+ * @returns {Array} The sorted array
  */
 const bubbleSort = function BubbleSort(arr) {
 	for (let i = 0; i < arr.length; i++) {
