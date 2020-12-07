@@ -24,5 +24,5 @@ algorithms = [
 
 # Choose analysis mode
 
-# sorts_table_analysis(s, algorithms)
 sorts_analysis(s, algorithms)
+# sorts_table_analysis(s, algorithms)
