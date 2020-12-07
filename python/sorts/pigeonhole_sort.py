@@ -1,8 +1,10 @@
 def pigeonhole_sort(arr: list):
     length = len(arr)
+    if length <= 1:
+        return
     _min = arr[0]
     _max = arr[0]
-    
+
     # Find min and max of numbers
     for i in range(length):
         if arr[i] < _min:
