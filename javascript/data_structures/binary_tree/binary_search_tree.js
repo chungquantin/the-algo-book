@@ -17,6 +17,14 @@ class BinarySearchTree {
 	constructor() {
 		this.root = null;
 	}
+	/** Insert method for BST
+	 *
+	 * Time complexity: O(log(n))
+	 * @param {Integer} value
+	 * @returns {BinarySearchTree} Binary Search Tree
+	 *
+	 * Author: @chungquantin
+	 */
 	insert(value) {
 		// Initialize the new node
 		let node = new Node(value);
@@ -56,6 +64,14 @@ class BinarySearchTree {
 			return this;
 		}
 	}
+	/** Search method for BST
+	 *
+	 * Time complexity: O(log(n))
+	 * @param {Integer} value
+	 * @returns {Node} Found node or undefined
+	 *
+	 * Author: @chungquantin
+	 */
 	search(value) {
 		if (this.root === null) return;
 		let current = this.root;

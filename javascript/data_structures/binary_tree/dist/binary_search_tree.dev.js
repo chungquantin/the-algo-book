@@ -31,6 +31,15 @@ function () {
 
     this.root = null;
   }
+  /** Insert method for BST
+   *
+   * Time complexity: O(log(n))
+   * @param {Integer} value
+   * @returns {BinarySearchTree} Binary Search Tree
+   *
+   * Author: @chungquantin
+   */
+
 
   _createClass(BinarySearchTree, [{
     key: "insert",
@@ -74,6 +83,15 @@ function () {
         return this;
       }
     }
+    /** Search method for BST
+     *
+     * Time complexity: O(log(n))
+     * @param {Integer} value
+     * @returns {Node} Found node or undefined
+     *
+     * Author: @chungquantin
+     */
+
   }, {
     key: "search",
     value: function search(value) {
