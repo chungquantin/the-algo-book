@@ -1,10 +1,10 @@
 def counting_sort(arr: list):
-    length = len(arr)
-    if length <= 1:
+    n = len(arr)
+    if n <= 1:
         return
     _max = arr[0]
     _min = arr[0]
-    for i in range(length):
+    for i in range(n):
         if arr[i] > _max:
             _max = arr[i]
             continue
@@ -16,7 +16,7 @@ def counting_sort(arr: list):
     counts = [0] * _range
 
     # Add up the frequency of each hole
-    for i in range(length):
+    for i in range(n):
         counts[arr[i] - _min] += 1
     for i in range(1, _range):
         counts[i] += counts[i - 1]

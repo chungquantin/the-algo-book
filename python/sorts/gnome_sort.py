@@ -1,7 +1,7 @@
 def gnome_sort(arr: list):
-    length = len(arr)
+    n = len(arr)
     i = 0
-    while i < length:
+    while i < n:
         if i == 0:
             i += 1
         if arr[i] >= arr[i - 1]:

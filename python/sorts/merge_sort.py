@@ -1,12 +1,12 @@
 def merge_sort(arr: list):
-    length = len(arr)
+    n = len(arr)
 
     # Base case
-    if length <= 1:
+    if n <= 1:
         return
 
     # Divide list into 2 halves
-    mid_index = length // 2
+    mid_index = n // 2
     left = arr[:mid_index]
     right = arr[mid_index:]
 

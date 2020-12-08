@@ -1,9 +1,9 @@
 def selection_sort(arr: list):
-    length = len(arr)
-    for i in range(length):
+    n = len(arr)
+    for i in range(n):
         _min_index = i
         _min = arr[_min_index]
-        for j in range(i + 1, length):
+        for j in range(i + 1, n):
             if arr[j] < _min:
                 _min = arr[j]
                 _min_index = j
