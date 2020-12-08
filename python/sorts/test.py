@@ -9,6 +9,7 @@ from python.sorts.insertion_sort import *
 from python.sorts.pigeonhole_sort import *
 from python.sorts.counting_sort import *
 from python.sorts.gnome_sort import *
+from python.sorts.cocktail_sort import *
 
 # Choose algorithms to test
 algorithms = [
@@ -20,8 +21,9 @@ algorithms = [
     # insertion_sort,
     # gnome_sort,
     # brick_sort,
-    # bubble_sort,
-    # optimized_bubble_sort,
+    cocktail_sort,
+    bubble_sort,
+    optimized_bubble_sort,
 ]
 # Create sample
 s = sample(5000, 0, 1000)

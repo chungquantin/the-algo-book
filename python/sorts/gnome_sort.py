@@ -1,11 +1,11 @@
-def gnome_sort(arr: list):
-    n = len(arr)
+def gnome_sort(a: list):
+    n = len(a)
     i = 0
     while i < n:
         if i == 0:
             i += 1
-        if arr[i] >= arr[i - 1]:
+        if a[i] >= a[i - 1]:
             i += 1
             continue
-        arr[i], arr[i - 1] = arr[i - 1], arr[i]
+        a[i], a[i - 1] = a[i - 1], a[i]
         i -= 1

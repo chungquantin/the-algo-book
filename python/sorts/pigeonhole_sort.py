@@ -1,16 +1,16 @@
-def pigeonhole_sort(arr: list):
-    n = len(arr)
+def pigeonhole_sort(a: list):
+    n = len(a)
     if n <= 1:
         return
-    _min = arr[0]
-    _max = arr[0]
+    _min = a[0]
+    _max = a[0]
 
     # Find min and max of numbers
     for i in range(n):
-        if arr[i] < _min:
-            _min = arr[i]
-        if arr[i] > _max:
-            _max = arr[i]
+        if a[i] < _min:
+            _min = a[i]
+        if a[i] > _max:
+            _max = a[i]
 
     # Create holes with length of range from min to max
     _range = _max - _min + 1
@@ -18,11 +18,11 @@ def pigeonhole_sort(arr: list):
 
     # Add up the frequency of each hole
     for i in range(n):
-        holes[arr[i] - _min] += 1
+        holes[a[i] - _min] += 1
 
     # Copy numbers from holes to original list
     index = 0
     for i in range(_range):
         for _ in range(holes[i]):
-            arr[index] = i + _min
+            a[index] = i + _min
             index += 1

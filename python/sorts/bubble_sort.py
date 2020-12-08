@@ -1,19 +1,19 @@
-def bubble_sort(arr: list):
-    n = len(arr)
+def bubble_sort(a: list):
+    n = len(a)
     for i in range(n - 1):
         for j in range(n - i - 1):
-            if arr[j] > arr[j + 1]:
-                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+            if a[j] > a[j + 1]:
+                a[j], a[j + 1] = a[j + 1], a[j]
 
 
-def optimized_bubble_sort(arr: list):
-    n = len(arr)
-    for i in range(n - 1):
+def optimized_bubble_sort(a: list):
+    n = len(a)
+    end = n - 1
+    swapped = True
+    while swapped:
         swapped = False
-        for j in range(n - i - 1):
-            if arr[j] > arr[j + 1]:
-                if not swapped:
-                    swapped = True
-                arr[j], arr[j + 1] = arr[j + 1], arr[j]
-        if not swapped:
-            break
+        for i in range(0, end):
+            if a[i] > a[i + 1]:
+                a[i], a[i + 1] = a[i + 1], a[i]
+                swapped = True
+        end -= 1
