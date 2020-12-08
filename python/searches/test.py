@@ -11,4 +11,4 @@ algorithm = [
 numbers = [1, 4, 1, 2, 7, 5]
 sorted_numbers = sorted(numbers)
 print(linear_search(numbers, 4))
-print(binary_search(numbers, 4))
+print(binary_search(sorted_numbers, 4))
