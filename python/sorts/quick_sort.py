@@ -1,25 +1,32 @@
-import math
+def quick_sort(arr: list):
+    length = len(arr)
+    if length <= 1:
+        return
 
-stage = 0
+    i = -1
+    j = 0
+    pivot = arr[length - 1]
+    
+    while j < length - 1:
+        if arr[j] <= pivot:
+            i += 1
+            arr[j], arr[i] = arr[i], arr[j]
+        j += 1
 
+    pivot_i = i + 1
 
-def quickSort(numbers: list):
-    global stage
-    if (len(numbers) == 0): return 0
-    left = []
-    right = []
-    pivot = numbers[math.floor(len(numbers) / 2)]
+    arr[pivot_i], arr[j] = arr[j], arr[pivot_i]
 
-    for num in numbers:
-        if (num < pivot):
-            left.append(num)
-        elif (num > pivot):
-            right.append(num)
+    left = arr[:pivot_i]
+    right = arr[pivot_i + 1:]
 
-    print(f'stage {stage}:', pivot, left, right)
-    stage += 1
-    return quickSort(left) + [].append(pivot) + quickSort(right)
+    quick_sort(left)
+    quick_sort(right)
 
+    length_l = len(left)
+    length_r = len(right)
 
-sortedList = quickSort([2, 5, 1, 7, 4, 7, 2, 6])
-print(sortedList)
+    for k in range(length_l):
+        arr[k] = left[k]
+    for k in range(length_r):
+        arr[length_l + k + 1] = right[k]
