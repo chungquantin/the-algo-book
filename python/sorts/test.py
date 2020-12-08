@@ -1,5 +1,5 @@
 from python.utils.Sample import *
-from python.sorts.test_analysis import *
+from python.sorts.sort_analysis import *
 from python.sorts.bubble_sort import *
 from python.sorts.merge_sort import *
 from python.sorts.selection_sort import *
@@ -26,7 +26,7 @@ algorithms = [
     optimized_bubble_sort,
 ]
 # Create sample
-s = sample(5000, -1000, 1000)
+numbers = sample(5000, -1000, 1000)
 # Choose analysis mode
-sorts_analysis(s, algorithms)
-sorts_table_analysis(s, algorithms)
+sorts_analysis(numbers, algorithms)
+sorts_table_analysis(numbers, algorithms)
