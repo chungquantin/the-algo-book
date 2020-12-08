@@ -87,7 +87,7 @@ var timSort = function TimSort(arr) {
   var RUN_INC = RUN;
 
   while (RUN_INC < len) {
-    for (var _x = 0; _x < len; _x += RUN * 2) {
+    for (var _x = 0; _x < len; _x += RUN_INC * 2) {
       arr.replace(arr, _x, RUN_INC * 2, merge(arr.slice(_x, _x + RUN_INC), arr.slice(_x + RUN_INC, _x + RUN_INC * 2)));
     }
 
@@ -116,5 +116,5 @@ function minRunLength(n) {
   return n + r;
 }
 
-var root = generateArray(0, 100, 100);
+var root = generateArray(0, 1000, 1000);
 console.log(timSort(root));

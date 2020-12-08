@@ -73,7 +73,7 @@ const timSort = function TimSort(arr) {
 	}
 	let RUN_INC = RUN;
 	while (RUN_INC < len) {
-		for (let x = 0; x < len; x += RUN * 2) {
+		for (let x = 0; x < len; x += RUN_INC * 2) {
 			arr.replace(
 				arr,
 				x,
@@ -108,6 +108,6 @@ function minRunLength(n) {
 	return n + r;
 }
 
-let root = generateArray(0, 100, 100);
+let root = generateArray(0, 1000, 1000);
 
 console.log(timSort(root));
