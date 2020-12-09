@@ -34,7 +34,7 @@ function () {
   /** Insert method for BST
    *
    * Time complexity: O(log(n))
-   * @param {Integer} value
+   * @param {Number} value
    * @returns {BinarySearchTree} Binary Search Tree
    *
    * Author: @chungquantin
@@ -86,7 +86,7 @@ function () {
     /** Search method for BST
      *
      * Time complexity: O(log(n))
-     * @param {Integer} value
+     * @param {Number} value
      * @returns {Node} Found node or undefined
      *
      * Author: @chungquantin
