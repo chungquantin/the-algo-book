@@ -81,7 +81,10 @@ class Rectangle {
 		);
 	}
 }
-
+/** Quad Tree Initialization
+ *
+ * Author: @chungquantin
+ */
 class QuadTree {
 	/**
 	 * @param {Rectangle} boundary
