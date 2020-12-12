@@ -18,6 +18,7 @@ algorithms = [
     pigeonhole_sort,
     merge_sort,
     selection_sort,
+    double_selection_sort,
     insertion_sort,
     gnome_sort,
     brick_sort,
@@ -26,7 +27,7 @@ algorithms = [
     optimized_bubble_sort,
 ]
 # Create sample
-numbers = sample(5000, -1000, 1000)
+numbers = sample(10, -1000, 1000)
 # Choose analysis mode
 sorts_analysis(numbers, algorithms)
 sorts_table_analysis(numbers, algorithms)
