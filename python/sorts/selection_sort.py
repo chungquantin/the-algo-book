@@ -10,10 +10,10 @@ def selection_sort(a: list):
 
 def double_selection_sort(a: list):
     n = len(a)
-    for i in range(int(n/2)):
+    for i in range(n//2):
         _min = i
         _max = n - i - 1
-        for j in range(i, n - i - 1):
+        for j in range(i + 1, n - i):
             if a[j] < a[_min]:
                 _min = j
                 continue
