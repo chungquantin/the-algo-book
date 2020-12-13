@@ -1,4 +1,4 @@
-require("../utils/array_utils/swap");
+require("../../utils/array_utils/swap");
 /** Bubble Sort Explanation
  *---------------------------------------------------------------------------------
  * Time Complexity
@@ -23,7 +23,7 @@ require("../utils/array_utils/swap");
  */
 const bubbleSort = function BubbleSort(arr) {
 	for (let i = 0; i < arr.length; i++) {
-		for (let j = i + 1; j < arr.length - 1; j++) {
+		for (let j = i + 1; j < arr.length; j++) {
 			if (arr[i] >= arr[j]) {
 				arr.swap(arr, i, j);
 			}
@@ -32,4 +32,4 @@ const bubbleSort = function BubbleSort(arr) {
 	return arr;
 };
 
-console.log(bubbleSort([2, 3, 1, 5, 2, 7]));
+module.exports = { bubbleSort };

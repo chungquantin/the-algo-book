@@ -61,5 +61,4 @@ const mergeSort = function MergeSort(arr) {
 	return merge(mergeSort(l), mergeSort(r));
 };
 
-var root_arr = [3, 2, 5, 6, 2, 1];
-console.log(mergeSort(root_arr));
+module.exports = { mergeSort };

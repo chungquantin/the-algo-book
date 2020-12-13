@@ -1,4 +1,4 @@
-require("../utils/array_utils/swap");
+require("../../utils/array_utils/swap");
 /** Selection Sort Explanation
  * ---------------------------------------------------------
  * Description:
@@ -21,14 +21,36 @@ const selection_sort = function SelectionSort(arr) {
 	let len = arr.length;
 	for (let i = 0; i < len; i++) {
 		min_index = i;
-		min = arr[min_index];
 		for (let j = i + 1; j < len; j++) {
-			if (arr[j] < min) {
-				min = arr[j];
+			if (arr[j] < arr[min_index]) {
 				min_index = j;
 			}
 		}
 		arr.swap(arr, i, min_index);
 	}
 	return arr;
+};
+
+const double_selection_sort = function DoubleSelectionSort(arr) {
+	let len = arr.length;
+	for (let i = 0; i < len; i++) {
+		let min_index = i;
+		let max_index = len - 1 - i;
+		for (let j = i + 1; j < len - i; j++) {
+			if (arr[min_index] > arr[j]) {
+				min_index = j;
+			}
+			if (arr[max_index] < arr[j]) {
+				max_index = j;
+			}
+		}
+		arr.swap(arr, i, min_index);
+		arr.swap(arr, len - 1 - i, max_index);
+	}
+	return arr;
+};
+
+module.exports = {
+	selection_sort,
+	double_selection_sort,
 };

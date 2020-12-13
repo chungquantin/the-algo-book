@@ -31,4 +31,4 @@ const insertionSort = function InsertionSort(arr) {
 	return arr;
 };
 
-console.log(insertionSort([4, 3, 6, 2, 5, 10, 2, 7]));
+module.exports = { insertionSort };

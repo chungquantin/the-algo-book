@@ -37,3 +37,5 @@ const quickSort = function QuickSort(arr) {
 	}
 	return quickSort(left).concat(pivot, quickSort(right));
 };
+
+module.exports = { quickSort };
