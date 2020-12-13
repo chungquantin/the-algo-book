@@ -18,7 +18,6 @@ algorithms = [
     pigeonhole_sort,
     merge_sort,
     selection_sort,
-    double_selection_sort,
     insertion_sort,
     gnome_sort,
     brick_sort,
