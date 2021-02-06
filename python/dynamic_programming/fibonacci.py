@@ -1,3 +1,4 @@
+from icecream import ic
 def fibonacci(n: int) -> int:
     if n <= 1:
         return n
@@ -9,7 +10,7 @@ def fibonacci(n: int) -> int:
     return dp[n]
 
 
-print(fibonacci(2))
-print(fibonacci(5))
-print(fibonacci(6))
-print(fibonacci(10))
+ic(fibonacci(2))
+ic(fibonacci(5))
+ic(fibonacci(6))
+ic(fibonacci(10))

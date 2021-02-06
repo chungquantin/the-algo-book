@@ -1,5 +1,5 @@
 import math
-
+from icecream import ic
 
 def min_coins(_sum, coins: list):
     dp = [math.inf] * (_sum + 1)
@@ -11,4 +11,4 @@ def min_coins(_sum, coins: list):
     return dp[_sum]
 
 
-print(min_coins(17, [2, 3, 5, 8]))
+ic(min_coins(17, [2, 3, 5, 8]))

@@ -1,3 +1,4 @@
+from icecream import ic
 def edit_distance(s1: str, s2: str) -> int:
     n1 = len(s1)
     n2 = len(s2)
@@ -16,9 +17,9 @@ def edit_distance(s1: str, s2: str) -> int:
     return dp[n1][n2]
 
 
-print(edit_distance("a", "ac"))
-print(edit_distance("", ""))
-print(edit_distance("", "ac"))
-print(edit_distance("abcd", "da"))
-print(edit_distance("abc", "ac"))
-print(edit_distance("appropriate meaning", "approximate matching"))
+ic(edit_distance("a", "ac"))
+ic(edit_distance("", ""))
+ic(edit_distance("", "ac"))
+ic(edit_distance("abcd", "da"))
+ic(edit_distance("abc", "ac"))
+ic(edit_distance("appropriate meaning", "approximate matching"))
